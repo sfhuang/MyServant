@@ -2,8 +2,6 @@
 	SESSION_START();
 	require_once "inc/sql.php";
 	connect_valid();
-	$QUERY_STRING="INSERT INTO VISIT_RECORD (VISIT_DATE,VISITOR_SESSION)VALUES(NOW(),'".SESSION_ID()."')";
-	MYSQL_QUERY($QUERY_STRING);
 ?>
 <TITLE>發現公僕（誰是我的公僕？）</TITLE>
 <BODY ONLOAD=initialPhase()>
