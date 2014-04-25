@@ -1,5 +1,4 @@
 <?php
-	SESSION_START();
 	require_once "inc/sql.php";
 	connect_valid();
 ?>
