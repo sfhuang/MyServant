@@ -36,3 +36,6 @@ Build Sequence:
 - legislator_list
 - legislator_committee_pair
 - legislator_contact_spot
+
+Note:
+有空的時候我會把一些資料做成 json 放上來
