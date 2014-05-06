@@ -27,7 +27,7 @@ IF ($_GET['LV'] == "CITY") {
         $QUERY_STRING = "SELECT * FROM VILLAGE_LEGISLATOR2 WHERE VILLAGE_ID='" . $_GET['VILLAGEID'] . "'";
     }
 } ELSE IF ($_GET['LV'] == "LEGISTCONT") {
-    $QUERY_STRING = "SELECT * FROM VILLAGE_LEGISLATOR2 AS VL, LEGISLATOR_CONTACT_SPOT AS LCS WHERE VILLAGE_ID='" . $_GET['VILLAGEID'] . "' AND VL.LEGISLATOR_ID=LCS.LEGISLATOR_ID";
+    $QUERY_STRING = "SELECT * FROM VILLAGE_LEGISLATOR2 AS VL, legislator_contact_spot AS LCS WHERE VILLAGE_ID='" . $_GET['VILLAGEID'] . "' AND VL.LEGISLATOR_ID=LCS.LEGISLATOR_ID";
 } ELSE IF ($_GET['LV'] == "CITYREP") {
     IF ($_GET['NATIVE'] == 1) {
         IF ($_GET['NATIVETYPE'] == 0) {
@@ -109,7 +109,7 @@ IF ($QUERY_STRING != "") {
                     displayParty($DATA['party_id']);
                     ECHO "<BR>" . $DATA['legislator_name'];
                     ECHO "</TD><TD>";
-                    $QUERY_STRING = "SELECT * FROM LEGISLATOR_CONTACT_SPOT AS LCS WHERE LCS.LEGISLATOR_ID='" . $DATA['legislator_id'] . "'";
+                    $QUERY_STRING = "SELECT * FROM legislator_contact_spot AS LCS WHERE LCS.LEGISLATOR_ID='" . $DATA['legislator_id'] . "'";
                     $NO_OF_SPOT = MYSQL_NUM_ROWS($SPOT_RESULT = db_query($QUERY_STRING));
                     FOR ($SPOT_SEED = 0; $SPOT_SEED < $NO_OF_SPOT; $SPOT_SEED++) {
                         $SPOT_DATA = MYSQL_FETCH_ARRAY($SPOT_RESULT);
