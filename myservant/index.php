@@ -9,22 +9,22 @@
 	<TR><TD COLSPAN=6 STYLE='BACKGROUND-COLOR:#DDDDFF;TEXT-ALIGN:CENTER'>請取出身分證，依照上面記載的資料依序選擇以下選項即可知道答案</TD></TR>
 <?php
 	
-	$PARTY_ARRAY[0][C]="#000000";$PARTY_ARRAY[0][W]="[無黨]";$PARTY_ARRAY[0][D]="無黨籍";
-	$PARTY_ARRAY[1][C]="#0000FF";$PARTY_ARRAY[1][W]="[國民]";$PARTY_ARRAY[1][D]="中國國民黨";
-	$PARTY_ARRAY[2][C]="GREEN";$PARTY_ARRAY[2][W]="[民進]";$PARTY_ARRAY[2][D]="民主進步黨";
-	$PARTY_ARRAY[3][C]="BROWN";$PARTY_ARRAY[3][W]="[台聯]";$PARTY_ARRAY[3][D]="台灣團結聯盟";
-	$PARTY_ARRAY[4][C]="#000000";$PARTY_ARRAY[4][W]="[親民]";$PARTY_ARRAY[4][D]="親民黨";
-	$PARTY_ARRAY[5][C]="#000000";$PARTY_ARRAY[5][W]="[無團]";$PARTY_ARRAY[5][D]="無黨團結聯盟";
-	$PARTY_ARRAY[6][C]="#0000FF";$PARTY_ARRAY[6][W]="[新黨]";$PARTY_ARRAY[6][D]="新黨";
-	$PARTY_ARRAY[7][C]="#000000";$PARTY_ARRAY[7][W]="[綠黨]";$PARTY_ARRAY[7][D]="綠黨";
-	$PARTY_ARRAY[8][C]="#000000";$PARTY_ARRAY[8][W]="[全廉]";$PARTY_ARRAY[8][D]="全民廉政無黨聯盟";
-	$PARTY_ARRAY[9][C]="#FF0000";$PARTY_ARRAY[9][W]="[中民]";$PARTY_ARRAY[9][D]="中國民主黨";
-	$PARTY_ARRAY[10][C]="#FF0000";$PARTY_ARRAY[10][W]="[中進]";$PARTY_ARRAY[10][D]="中國民主進步黨";
-	$PARTY_ARRAY[11][C]="#FF0000";$PARTY_ARRAY[11][W]="[中青]";$PARTY_ARRAY[11][D]="中國青年黨";
-	$PARTY_ARRAY[12][C]="#FF0000";$PARTY_ARRAY[12][W]="[中社]";$PARTY_ARRAY[12][D]="中國民主社會黨";
-	$PARTY_ARRAY[13][C]="#FF0000";$PARTY_ARRAY[13][W]="[中統]";$PARTY_ARRAY[13][D]="中華統一促進黨";
-	$PARTY_ARRAY[14][C]="#FF0000";$PARTY_ARRAY[14][W]="[中復]";$PARTY_ARRAY[14][D]="中國復興黨";
-	$PARTY_ARRAY[15][C]="#000000";$PARTY_ARRAY[15][W]="[勞動]";$PARTY_ARRAY[15][D]="勞動黨";
+	$PARTY_ARRAY[0]['C']="#000000";$PARTY_ARRAY[0]['W']="[無黨]";$PARTY_ARRAY[0]['D']="無黨籍";
+	$PARTY_ARRAY[1]['C']="#0000FF";$PARTY_ARRAY[1]['W']="[國民]";$PARTY_ARRAY[1]['D']="中國國民黨";
+	$PARTY_ARRAY[2]['C']="GREEN";$PARTY_ARRAY[2]['W']="[民進]";$PARTY_ARRAY[2]['D']="民主進步黨";
+	$PARTY_ARRAY[3]['C']="BROWN";$PARTY_ARRAY[3]['W']="[台聯]";$PARTY_ARRAY[3]['D']="台灣團結聯盟";
+	$PARTY_ARRAY[4]['C']="#000000";$PARTY_ARRAY[4]['W']="[親民]";$PARTY_ARRAY[4]['D']="親民黨";
+	$PARTY_ARRAY[5]['C']="#000000";$PARTY_ARRAY[5]['W']="[無團]";$PARTY_ARRAY[5]['D']="無黨團結聯盟";
+	$PARTY_ARRAY[6]['C']="#0000FF";$PARTY_ARRAY[6]['W']="[新黨]";$PARTY_ARRAY[6]['D']="新黨";
+	$PARTY_ARRAY[7]['C']="#000000";$PARTY_ARRAY[7]['W']="[綠黨]";$PARTY_ARRAY[7]['D']="綠黨";
+	$PARTY_ARRAY[8]['C']="#000000";$PARTY_ARRAY[8]['W']="[全廉]";$PARTY_ARRAY[8]['D']="全民廉政無黨聯盟";
+	$PARTY_ARRAY[9]['C']="#FF0000";$PARTY_ARRAY[9]['W']="[中民]";$PARTY_ARRAY[9]['D']="中國民主黨";
+	$PARTY_ARRAY[10]['C']="#FF0000";$PARTY_ARRAY[10]['W']="[中進]";$PARTY_ARRAY[10]['D']="中國民主進步黨";
+	$PARTY_ARRAY[11]['C']="#FF0000";$PARTY_ARRAY[11]['W']="[中青]";$PARTY_ARRAY[11]['D']="中國青年黨";
+	$PARTY_ARRAY[12]['C']="#FF0000";$PARTY_ARRAY[12]['W']="[中社]";$PARTY_ARRAY[12]['D']="中國民主社會黨";
+	$PARTY_ARRAY[13]['C']="#FF0000";$PARTY_ARRAY[13]['W']="[中統]";$PARTY_ARRAY[13]['D']="中華統一促進黨";
+	$PARTY_ARRAY[14]['C']="#FF0000";$PARTY_ARRAY[14]['W']="[中復]";$PARTY_ARRAY[14]['D']="中國復興黨";
+	$PARTY_ARRAY[15]['C']="#000000";$PARTY_ARRAY[15]['W']="[勞動]";$PARTY_ARRAY[15]['D']="勞動黨";
 	
 	ECHO "
 	<TR><TD STYLE='TEXT-ALIGN:CENTER;BACKGROUND-COLOR:#FFDDDD;'>身分</TD><TD COLSPAN=5>
@@ -41,13 +41,13 @@
 		</SPAN>
 	</TD></TR>
 	";
-php?>
+?>
 	<TR><TD STYLE='TEXT-ALIGN:CENTER;BACKGROUND-COLOR:#FFDDDD;'>地址</TD><TD COLSPAN=5>
 <?php
 	
-	display_city("CID","120","ONCHANGE=setDistList()",$_POST[CID]);
+	display_city("CID","120","ONCHANGE=setDistList()", isset($_POST['CID']) ? $_POST['CID'] : '');
 	
-php?>
+?>
 	<SPAN ID=DIST_LIST>
 			<SELECT ID='DISTID' STYLE='WIDTH:120;FONT-SIZE:16'><OPTION VALUE=0>鄉鎮市區</OPTION></SELECT>
 	</SPAN>
@@ -72,7 +72,7 @@ php?>
 	{
 		IF($SEED>0&&($SEED%4==0))
 			ECHO "</TR><TR>";
-		ECHO "<TD STYLE='WIDTH:190'><SPAN STYLE='WIDTH:10;BACKGROUND-COLOR:#CCCCCC;COLOR:".$PARTY_ARRAY[$SEED][C].";MARGIN:1'>".$PARTY_ARRAY[$SEED][W]."</SPAN>：".$PARTY_ARRAY[$SEED][D]."</TD>";
+		ECHO "<TD STYLE='WIDTH:190'><SPAN STYLE='WIDTH:10;BACKGROUND-COLOR:#CCCCCC;COLOR:".$PARTY_ARRAY[$SEED]['C'].";MARGIN:1'>".$PARTY_ARRAY[$SEED]['W']."</SPAN>：".$PARTY_ARRAY[$SEED]['D']."</TD>";
 	}
 	ECHO "</TR></TABLE>";
 	ECHO "<BR>※加場演出：<A HREF='https://play.google.com/store/apps/details?id=hsfsoft.civiltool.legislatorcaller' TARGET=_blank>【你亂搞，我打爆】立委監督 APP (Android 版)</A>※<BR>";
@@ -83,12 +83,13 @@ php?>
 	
 	FUNCTION display_city($NAME,$WIDTH,$ACTIONS,$DEFAULT)
 	{
-		$QUERY_STRING="SELECT * FROM CITY_LIST";
+		$QUERY_STRING="SELECT * FROM city_list";
 		IF($DEFAULT=="")
 		{
 			$DEFAULT=0;
 		}
-		$NO_OF_DATA=MYSQL_NUM_ROWS($RESULT=MYSQL_QUERY($QUERY_STRING));
+                $RESULT=db_query($QUERY_STRING);
+		$NO_OF_DATA=MYSQL_NUM_ROWS($RESULT);
 		IF($NO_OF_DATA>0)
 		{
 			ECHO "<SELECT NAME='".$NAME."' ID='".$NAME."'  STYLE='WIDTH:".$WIDTH.";FONT-SIZE:16' ".$ACTIONS.">";
@@ -99,10 +100,10 @@ php?>
 			FOR($SEED=0;$SEED<$NO_OF_DATA;$SEED++)
 			{
 				$DATA=MYSQL_FETCH_ARRAY($RESULT);
-				ECHO "<OPTION VALUE='".$DATA[city_id]."'";
-				IF($DATA[city_id]==$DEFAULT)
+				ECHO "<OPTION VALUE='".$DATA['city_id']."'";
+				IF($DATA['city_id']==$DEFAULT)
 					ECHO " CHECKED";
-				ECHO ">".$DATA[city_name]."</OPTION>";
+				ECHO ">".$DATA['city_name']."</OPTION>";
 			}
 			ECHO "</SELECT>";
 		}
@@ -113,7 +114,7 @@ php?>
 	}
 	
 	
-php?>
+?>
 
 <SCRIPT>
 

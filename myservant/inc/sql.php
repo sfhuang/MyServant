@@ -10,7 +10,7 @@ function connect_to_db()
 {
 	$USERNAME="";
 	$PASSWORD="";
-	$DATABASE_NAME="";
+	$DATABASE_NAME="gov_rep_contactbook";
 	if($link = mysql_pconnect("localhost", $USERNAME,$PASSWORD))
 	{
 		mysql_query("SET NAMES 'utf8'");
@@ -37,4 +37,11 @@ function connect_valid()
 
 }
 
-php?>
+function db_query($sql) {
+    $result = mysql_query($sql);
+    if(false === $result) {
+        die(mysql_error());
+    } else {
+        return $result;
+    }
+}
