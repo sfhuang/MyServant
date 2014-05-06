@@ -24,10 +24,10 @@ IF ($_GET['LV'] == "CITY") {
             $QUERY_STRING = "SELECT * FROM legislator_list WHERE LEGISLATOR_ELECTION_DISTRICT_ID='7777'";
     }
     ELSE {
-        $QUERY_STRING = "SELECT * FROM VILLAGE_LEGISLATOR2 WHERE VILLAGE_ID='" . $_GET['VILLAGEID'] . "'";
+        $QUERY_STRING = "SELECT * FROM village_legislator2 WHERE VILLAGE_ID='" . $_GET['VILLAGEID'] . "'";
     }
 } ELSE IF ($_GET['LV'] == "LEGISTCONT") {
-    $QUERY_STRING = "SELECT * FROM VILLAGE_LEGISLATOR2 AS VL, legislator_contact_spot AS LCS WHERE VILLAGE_ID='" . $_GET['VILLAGEID'] . "' AND VL.LEGISLATOR_ID=LCS.LEGISLATOR_ID";
+    $QUERY_STRING = "SELECT * FROM village_legislator2 AS VL, legislator_contact_spot AS LCS WHERE VILLAGE_ID='" . $_GET['VILLAGEID'] . "' AND VL.LEGISLATOR_ID=LCS.LEGISLATOR_ID";
 } ELSE IF ($_GET['LV'] == "CITYREP") {
     IF ($_GET['NATIVE'] == 1) {
         IF ($_GET['NATIVETYPE'] == 0) {
