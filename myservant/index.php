@@ -6,7 +6,7 @@ connect_valid();
     <head>
         <TITLE>發現公僕（誰是我的公僕？）</TITLE>
 
-        <link href="/myservant/css/chosen.min.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="css/chosen.min.css" media="all" rel="stylesheet" type="text/css" />
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js"></script>
         <script>
