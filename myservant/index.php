@@ -2,7 +2,22 @@
 	require_once "inc/sql.php";
 	connect_valid();
 ?>
+<html>
+<head>
 <TITLE>發現公僕（誰是我的公僕？）</TITLE>
+
+<link href="/myservant/css/chosen.min.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js"></script>
+<script>
+jQuery(document).ready(function($){
+  $("select#CID").chosen();
+  $("select#DISTID").chosen();
+  $("select#VILLAGEID").chosen();
+});
+</script>
+
+</head>
 <BODY ONLOAD=initialPhase()>
 	<BR><CENTER><SPAN STYLE='FONT-SIZE:30'>您知道誰是您的公僕嗎？</SPAN><BR><BR>
 	<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=3>
@@ -49,10 +64,10 @@
 	
 ?>
 	<SPAN ID=DIST_LIST>
-			<SELECT ID='DISTID' STYLE='WIDTH:120;FONT-SIZE:16'><OPTION VALUE=0>鄉鎮市區</OPTION></SELECT>
+			<SELECT ID='DISTID' STYLE='WIDTH:120;FONT-SIZE:16' ONCHANGE='setVillageList()'><OPTION VALUE=0>鄉鎮市區</OPTION></SELECT>
 	</SPAN>
 	<SPAN ID=VILLAGE_LIST>
-			<SELECT ID='VILLAGEID' STYLE='WIDTH:120;FONT-SIZE:16'>><OPTION VALUE=0>村里</OPTION></SELECT>
+			<SELECT ID='VILLAGEID' STYLE='WIDTH:120;FONT-SIZE:16' ONCHANGE='setFormData()'><OPTION VALUE=0>村里</OPTION></SELECT>
 	</SPAN>
 	</TD></TR>
 	<TR STYLE='BACKGROUND-COLOR:#DDDDFF;TEXT-ALIGN:CENTER'><TD>層級</TD><TD>類別</TD><TD>職稱</TD><TD>詳細資料</TD></TR>
@@ -147,19 +162,20 @@ function setDistList()
 {
 	if(document.getElementById('CID').value==0)
 	{
-		document.getElementById('DIST_LIST').innerHTML="<SELECT ID='DISTLIST' STYLE='WIDTH:120'><OPTION VALUE=0>鄉鎮市區</OPTION></SELECT>";
-		document.getElementById('VILLAGE_LIST').innerHTML="<SELECT ID='VILLAGELIST' STYLE='WIDTH:120'>><OPTION VALUE=0>村里</OPTION></SELECT>";
+		document.getElementById('DISTID').innerHTML="<OPTION VALUE=0>鄉鎮市區</OPTION>";
+		document.getElementById('VILLAGEID').innerHTML="<OPTION VALUE=0>村里</OPTION>";
 		document.getElementById('CITYPOS').innerHTML='縣市長';
 		document.getElementById('CITY_GOVERNOR').innerHTML='';
 		document.getElementById('CITYREPPOS').innerHTML='縣市議員';
 	}
 	else
 	{
-		document.getElementById('VILLAGE_LIST').innerHTML="<SELECT ID='VILLAGELIST' STYLE='WIDTH:120'>><OPTION VALUE=0>村里</OPTION></SELECT>";
+		document.getElementById('VILLAGEID').innerHTML="<OPTION VALUE=0>村里</OPTION>";
 		textContent=document.getElementById('CID').options[document.getElementById('CID').selectedIndex].text;
 		document.getElementById('CITYPOS').innerHTML=textContent.substr(textContent.length-1)+'長';
 		document.getElementById('CITYREPPOS').innerHTML=textContent.substr(textContent.length-1)+'議員';
-		loadDataObj(XMLHttpRequestObject,'displaySelectList.php?CID='+document.getElementById('CID').value,'DIST_LIST');
+		loadDataObj(XMLHttpRequestObject,'displaySelectList.php?CID='+document.getElementById('CID').value,'DISTID');
+console.log(123);
 		loadDataObj(XMLHttpRequestObject2,'showServant.php?LV=CITY&CID='+document.getElementById('CID').value,'CITY_GOVERNOR');
 	}
 	document.getElementById('DISTPOS').innerHTML='鄉鎮市區長';
@@ -174,13 +190,14 @@ function setDistList()
 	}
 	document.getElementById('DISTREPPOS').innerHTML='鄉鎮市民代表';
 	document.getElementById('VILLAGE_WORKER').innerHTML='';
+
 }
 
 function setVillageList()
 {
 	if(document.getElementById('DISTID').value==0)
 	{
-		document.getElementById('VILLAGE_LIST').innerHTML="<SELECT ID='VILLAGELIST' STYLE='WIDTH:120'>><OPTION VALUE=0>村里</OPTION></SELECT>";
+		document.getElementById('VILLAGEID').innerHTML="<OPTION VALUE=0>村里</OPTION>";
 		document.getElementById('DIST_GOVERNOR').innerHTML='';
 	}
 	else
@@ -191,7 +208,7 @@ function setVillageList()
 			document.getElementById('DISTREPPOS').innerHTML='市民代表';
 		else
 			document.getElementById('DISTREPPOS').innerHTML=textContent.substr(textContent.length-1)+'民代表';
-		loadDataObj(XMLHttpRequestObject,'displaySelectList.php?DISTID='+document.getElementById('DISTID').value,'VILLAGE_LIST');
+		loadDataObj(XMLHttpRequestObject,'displaySelectList.php?DISTID='+document.getElementById('DISTID').value,'VILLAGEID');
 		loadDataObj(XMLHttpRequestObject2,'showServant.php?LV=DIST&DISTID='+document.getElementById('DISTID').value,'DIST_GOVERNOR');
 	}
 	if(document.getElementById('NATIVE').value!=2)
@@ -230,6 +247,7 @@ function setFormData()
 		{
 			loadDataObj(XMLHttpRequestObject2,'showServant.php?LV=LEGIST&VILLAGEID='+document.getElementById('VILLAGEID').value,'DIST_LEGISLATOR');
 		}
+
 }
 
 var XMLHttpRequestObject = false;
@@ -293,6 +311,8 @@ function loadDataObj(HttpObj,dataSource,DivID)
 			if(HttpObj.readyState == 4 && HttpObj.status == 200)
 			{
 				obj.innerHTML = HttpObj.responseText;
+				$("#DISTID").trigger("chosen:updated");
+				$("#VILLAGEID").trigger("chosen:updated");
 			}
 		}
 		HttpObj.send(null);
@@ -320,3 +340,4 @@ function loadDataObjTo(HttpObj,dataSource,DivID,Direction,StartDataID,NO)
 
 </SCRIPT>
 </BODY>
+</html>
