@@ -37,5 +37,6 @@ Build Sequence:
 - legislator_committee_pair
 - legislator_contact_spot
 
-Note:
-有空的時候我會把一些資料做成 json 放上來
+MySQL-MyServant-Dump-20140425.sql 已經依據上述順序合併
+
+安裝時請將 myservant/inc/sql.php.default 複製為 myservant/inc/sql.php ，然後修改關於資料庫的設定
