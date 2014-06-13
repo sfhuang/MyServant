@@ -81,7 +81,7 @@ SET character_set_client = @saved_cs_client;
 
 /*!50001 DROP TABLE IF EXISTS `village_legislator2`*/;
 /*!50001 DROP VIEW IF EXISTS `village_legislator2`*/;
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`%` SQL SECURITY DEFINER VIEW `village_legislator2` AS select `lel`.`legislator_election_district_id` AS `legislator_election_district_id`,`lel`.`legislator_election_district_name` AS `legislator_election_district_name`,`vl`.`village_id` AS `village_id`,`ll`.`legislator_name` AS `legislator_name`,`ll`.`legislator_id` AS `legislator_id`,`ll`.`party_id` AS `party_id` from ((`legislator_list` `LL` join `village_list` `VL`) join `legislator_election_district_list` `LEL`) where ((`ll`.`legislator_election_district_id` = `vl`.`legislator_election_district_id`) and (`ll`.`legislator_election_district_id` = `lel`.`legislator_election_district_id`)) */;
+/*!50001 CREATE  VIEW `village_legislator2` AS select `lel`.`legislator_election_district_id` AS `legislator_election_district_id`,`lel`.`legislator_election_district_name` AS `legislator_election_district_name`,`vl`.`village_id` AS `village_id`,`ll`.`legislator_name` AS `legislator_name`,`ll`.`legislator_id` AS `legislator_id`,`ll`.`party_id` AS `party_id` from ((`legislator_list` `ll` join `village_list` `vl`) join `legislator_election_district_list` `lel`) where ((`ll`.`legislator_election_district_id` = `vl`.`legislator_election_district_id`) and (`ll`.`legislator_election_district_id` = `lel`.`legislator_election_district_id`)) */;
 
 --
 -- Final view structure for view `village_legislator`
@@ -89,7 +89,7 @@ SET character_set_client = @saved_cs_client;
 
 /*!50001 DROP TABLE IF EXISTS `village_legislator`*/;
 /*!50001 DROP VIEW IF EXISTS `village_legislator`*/;
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`%` SQL SECURITY DEFINER VIEW `village_legislator` AS select `lel`.`legislator_election_district_id` AS `legislator_election_district_id`,`lel`.`legislator_election_district_name` AS `legislator_election_district_name`,`vl`.`village_id` AS `village_id`,`ll`.`legislator_name` AS `legislator_name`,`ll`.`party_id` AS `party_id` from ((`legislator_list` `LL` join `village_list` `VL`) join `legislator_election_district_list` `LEL`) where ((`ll`.`legislator_election_district_id` = `vl`.`legislator_election_district_id`) and (`ll`.`legislator_election_district_id` = `lel`.`legislator_election_district_id`)) */;
+/*!50001 CREATE  VIEW `village_legislator` AS select `lel`.`legislator_election_district_id` AS `legislator_election_district_id`,`lel`.`legislator_election_district_name` AS `legislator_election_district_name`,`vl`.`village_id` AS `village_id`,`ll`.`legislator_name` AS `legislator_name`,`ll`.`party_id` AS `party_id` from ((`legislator_list` `ll` join `village_list` `vl`) join `legislator_election_district_list` `lel`) where ((`ll`.`legislator_election_district_id` = `vl`.`legislator_election_district_id`) and (`ll`.`legislator_election_district_id` = `lel`.`legislator_election_district_id`)) */;
 
 --
 -- Final view structure for view `village_legislator3`
@@ -97,7 +97,7 @@ SET character_set_client = @saved_cs_client;
 
 /*!50001 DROP TABLE IF EXISTS `village_legislator3`*/;
 /*!50001 DROP VIEW IF EXISTS `village_legislator3`*/;
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`%` SQL SECURITY DEFINER VIEW `village_legislator3` AS select `lel`.`legislator_election_district_id` AS `legislator_election_district_id`,`lel`.`legislator_election_district_name` AS `legislator_election_district_name`,`vl`.`village_id` AS `village_id`,`ll`.`legislator_name` AS `legislator_name`,`ll`.`legislator_id` AS `legislator_id`,`ll`.`party_id` AS `party_id`,`ll`.`underattack` AS `underattack` from ((`legislator_list` `LL` join `village_list` `VL`) join `legislator_election_district_list` `LEL`) where ((`ll`.`legislator_election_district_id` = `vl`.`legislator_election_district_id`) and (`ll`.`legislator_election_district_id` = `lel`.`legislator_election_district_id`)) */;
+/*!50001 CREATE  VIEW `village_legislator3` AS select `lel`.`legislator_election_district_id` AS `legislator_election_district_id`,`lel`.`legislator_election_district_name` AS `legislator_election_district_name`,`vl`.`village_id` AS `village_id`,`ll`.`legislator_name` AS `legislator_name`,`ll`.`legislator_id` AS `legislator_id`,`ll`.`party_id` AS `party_id` from ((`legislator_list` `ll` join `village_list` `vl`) join `legislator_election_district_list` `lel`) where ((`ll`.`legislator_election_district_id` = `vl`.`legislator_election_district_id`) and (`ll`.`legislator_election_district_id` = `lel`.`legislator_election_district_id`)) */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
